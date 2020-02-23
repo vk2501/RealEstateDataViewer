@@ -1,5 +1,5 @@
 # RealEstateDataViewer
-Stage-1
+Stage-1: Implemented MVVM layout and Populated Buildings DataGrid
 1. MVVM layout
 2. Entify framework - Database first
 3. Populating buildings datagrid
