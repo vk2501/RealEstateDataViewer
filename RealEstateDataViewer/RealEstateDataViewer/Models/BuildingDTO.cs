@@ -40,6 +40,12 @@ namespace RealEstateDataViewer.Models
             get { return buildingArea; }
             set { buildingArea = value; }
         }
+        private decimal occupancy;
+        public decimal Occupancy
+        {
+            get { return occupancy; }
+            set { occupancy = value; }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

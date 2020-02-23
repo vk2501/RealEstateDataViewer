@@ -52,6 +52,11 @@
                     Width="auto"
                     Binding="{Binding Path=BuildingArea}">
                 </DataGridTextColumn>
+                <DataGridTextColumn 
+                    Header="Occupancy" 
+                    Width="auto"
+                    Binding="{Binding Path=Occupancy}">
+                </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
         <DataGrid 

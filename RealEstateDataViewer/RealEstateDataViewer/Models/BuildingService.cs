@@ -18,22 +18,28 @@ namespace RealEstateDataViewer.Models
             List<BuildingDTO> buildingsList = new List<BuildingDTO>();
             try
             {
-                var buildingsQuery = from building in realEstateDataContext.Buildings
-                                     select new BuildingDTO
-                                     {
-                                         BuildingID = building.BuildingID,
-                                         Address = building.Address,
-                                         City = building.City,
-                                         State = building.State,
-                                         ZipOrPostalCode = building.ZipOrPostalCode,
-                                         BuildingArea = building.BuildingArea
-                                     };
-                return buildingsQuery.ToList();
+                return realEstateDataContext.Buildings.ToList().Select(b => new BuildingDTO
+                {
+                    BuildingID = b.BuildingID,
+                    Address = b.Address,
+                    City = b.City,
+                    State = b.State,
+                    ZipOrPostalCode = b.ZipOrPostalCode,
+                    BuildingArea = b.BuildingArea,
+                    Occupancy = GetOccupancyPercentage(b.BuildingID, b.BuildingArea)
+                }).ToList();
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+        }
+
+        public decimal GetOccupancyPercentage(int buildingID, int? buildingArea)
+        {
+            var totalAreaOfSuites = realEstateDataContext.Suites.Where(s => s.BuildingID == buildingID).Select(p => p.SuiteArea).Sum();
+            var occupancyValue = totalAreaOfSuites.HasValue ? Decimal.Divide(Convert.ToDecimal(totalAreaOfSuites.Value), Convert.ToDecimal(buildingArea.Value)) : Decimal.Zero;
+            return occupancyValue;
         }
     }
 }
