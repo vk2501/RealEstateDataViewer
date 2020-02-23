@@ -4,47 +4,47 @@ namespace RealEstateDataViewer.Models
 {
     public class BuildingDTO : INotifyPropertyChanged
     {
-        private int buildingID;
+        private int _buildingID;
         public int BuildingID 
         {
-            get { return buildingID; }
-            set { buildingID = value; }
+            get { return _buildingID; }
+            set { _buildingID = value; }
         }
-        private string address { get; set; }
+        private string _address;
         public string Address
         {
-            get { return address; }
-            set { address = value; }
+            get { return _address; }
+            set { _address = value; }
         }
-        private string city;
+        private string _city;
         public string City
         {
-            get { return city; }
-            set { city = value; }
+            get { return _city; }
+            set { _city = value; }
         }
-        private string state;
+        private string _state;
         public string State
         {
-            get { return state; }
-            set { state = value; }
+            get { return _state; }
+            set { _state = value; }
         }
-        private string zipOrPostalCode;
+        private string _zipOrPostalCode;
         public string ZipOrPostalCode
         {
-            get { return zipOrPostalCode; }
-            set { zipOrPostalCode = value; }
+            get { return _zipOrPostalCode; }
+            set { _zipOrPostalCode = value; }
         }
-        private int? buildingArea;
+        private int? _buildingArea;
         public int? BuildingArea
         {
-            get { return buildingArea; }
-            set { buildingArea = value; }
+            get { return _buildingArea; }
+            set { _buildingArea = value; }
         }
-        private decimal occupancy;
+        private decimal _occupancy;
         public decimal Occupancy
         {
-            get { return occupancy; }
-            set { occupancy = value; }
+            get { return _occupancy; }
+            set { _occupancy = value; }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

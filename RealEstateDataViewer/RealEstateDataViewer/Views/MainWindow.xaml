@@ -20,6 +20,10 @@
                   Grid.Row="1" 
                   Padding="10 10 10 10" 
                   AutoGenerateColumns="False"
+                  AlternatingRowBackground="#D6EAF8"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  IsReadOnly="False"
                   ItemsSource="{Binding Path=BuildingsList}">
             <DataGrid.Columns>
                 <DataGridTextColumn 

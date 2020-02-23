@@ -9,3 +9,8 @@ Files updated
 1. RealEstateDataViewer/RealEstateDataViewer/Models/BuildingDTO.cs
 2. RealEstateDataViewer/RealEstateDataViewer/Models/BuildingService.cs
 3. RealEstateDataViewer/RealEstateDataViewer/Views/MainWindow.xaml
+
+Stage-3: Some code cleanup and style to building datagrid
+Files updated 
+1. RealEstateDataViewer/RealEstateDataViewer/Models/BuildingDTO.cs
+2. RealEstateDataViewer/RealEstateDataViewer/Views/MainWindow.xaml
