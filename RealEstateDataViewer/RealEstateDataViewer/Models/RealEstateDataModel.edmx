@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="RealEstateExampleModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Buildings">
+          <Key>
+            <PropertyRef Name="BuildingID" />
+          </Key>
+          <Property Name="BuildingID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="char" MaxLength="2" />
+          <Property Name="ZipOrPostalCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="BuildingArea" Type="int" />
+        </EntityType>
+        <EntityType Name="Leases">
+          <Key>
+            <PropertyRef Name="LeaseID" />
+          </Key>
+          <Property Name="LeaseID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BuildingID" Type="smallint" Nullable="false" />
+          <Property Name="SuiteID" Type="smallint" Nullable="false" />
+          <Property Name="TenantName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LeaseBegin" Type="date" />
+          <Property Name="LeaseExpiration" Type="date" />
+          <Property Name="RentPerMonth" Type="float" />
+        </EntityType>
+        <EntityType Name="Suites">
+          <Key>
+            <PropertyRef Name="SuiteID" />
+          </Key>
+          <Property Name="SuiteID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BuildingID" Type="smallint" Nullable="false" />
+          <Property Name="SuiteName" Type="nvarchar" MaxLength="10" />
+          <Property Name="SuiteArea" Type="int" />
+        </EntityType>
+        <Association Name="FK_Leases_Suites">
+          <End Role="Suites" Type="Self.Suites" Multiplicity="1" />
+          <End Role="Leases" Type="Self.Leases" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Suites">
+              <PropertyRef Name="SuiteID" />
+            </Principal>
+            <Dependent Role="Leases">
+              <PropertyRef Name="SuiteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Suites_Buildings">
+          <End Role="Buildings" Type="Self.Buildings" Multiplicity="1" />
+          <End Role="Suites" Type="Self.Suites" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buildings">
+              <PropertyRef Name="BuildingID" />
+            </Principal>
+            <Dependent Role="Suites">
+              <PropertyRef Name="BuildingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RealEstateExampleModelStoreContainer">
+          <EntitySet Name="Buildings" EntityType="Self.Buildings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Leases" EntityType="Self.Leases" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Suites" EntityType="Self.Suites" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Leases_Suites" Association="Self.FK_Leases_Suites">
+            <End Role="Suites" EntitySet="Suites" />
+            <End Role="Leases" EntitySet="Leases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Suites_Buildings" Association="Self.FK_Suites_Buildings">
+            <End Role="Buildings" EntitySet="Buildings" />
+            <End Role="Suites" EntitySet="Suites" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RealEstateExampleModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Building">
+          <Key>
+            <PropertyRef Name="BuildingID" />
+          </Key>
+          <Property Name="BuildingID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="ZipOrPostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="BuildingArea" Type="Int32" />
+          <NavigationProperty Name="Suites" Relationship="Self.FK_Suites_Buildings" FromRole="Buildings" ToRole="Suites" />
+        </EntityType>
+        <EntityType Name="Leas">
+          <Key>
+            <PropertyRef Name="LeaseID" />
+          </Key>
+          <Property Name="LeaseID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BuildingID" Type="Int16" Nullable="false" />
+          <Property Name="SuiteID" Type="Int16" Nullable="false" />
+          <Property Name="TenantName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LeaseBegin" Type="DateTime" Precision="0" />
+          <Property Name="LeaseExpiration" Type="DateTime" Precision="0" />
+          <Property Name="RentPerMonth" Type="Double" />
+          <NavigationProperty Name="Suite" Relationship="Self.FK_Leases_Suites" FromRole="Leases" ToRole="Suites" />
+        </EntityType>
+        <EntityType Name="Suite">
+          <Key>
+            <PropertyRef Name="SuiteID" />
+          </Key>
+          <Property Name="SuiteID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BuildingID" Type="Int16" Nullable="false" />
+          <Property Name="SuiteName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="SuiteArea" Type="Int32" />
+          <NavigationProperty Name="Building" Relationship="Self.FK_Suites_Buildings" FromRole="Suites" ToRole="Buildings" />
+          <NavigationProperty Name="Leases" Relationship="Self.FK_Leases_Suites" FromRole="Suites" ToRole="Leases" />
+        </EntityType>
+        <Association Name="FK_Suites_Buildings">
+          <End Role="Buildings" Type="Self.Building" Multiplicity="1" />
+          <End Role="Suites" Type="Self.Suite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buildings">
+              <PropertyRef Name="BuildingID" />
+            </Principal>
+            <Dependent Role="Suites">
+              <PropertyRef Name="BuildingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Leases_Suites">
+          <End Role="Suites" Type="Self.Suite" Multiplicity="1" />
+          <End Role="Leases" Type="Self.Leas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Suites">
+              <PropertyRef Name="SuiteID" />
+            </Principal>
+            <Dependent Role="Leases">
+              <PropertyRef Name="SuiteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RealEstateExampleEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Buildings" EntityType="Self.Building" />
+          <EntitySet Name="Leases" EntityType="Self.Leas" />
+          <EntitySet Name="Suites" EntityType="Self.Suite" />
+          <AssociationSet Name="FK_Suites_Buildings" Association="Self.FK_Suites_Buildings">
+            <End Role="Buildings" EntitySet="Buildings" />
+            <End Role="Suites" EntitySet="Suites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Leases_Suites" Association="Self.FK_Leases_Suites">
+            <End Role="Suites" EntitySet="Suites" />
+            <End Role="Leases" EntitySet="Leases" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RealEstateExampleModelStoreContainer" CdmEntityContainer="RealEstateExampleEntities">
+          <EntitySetMapping Name="Buildings">
+            <EntityTypeMapping TypeName="RealEstateExampleModel.Building">
+              <MappingFragment StoreEntitySet="Buildings">
+                <ScalarProperty Name="BuildingID" ColumnName="BuildingID" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="ZipOrPostalCode" ColumnName="ZipOrPostalCode" />
+                <ScalarProperty Name="BuildingArea" ColumnName="BuildingArea" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Leases">
+            <EntityTypeMapping TypeName="RealEstateExampleModel.Leas">
+              <MappingFragment StoreEntitySet="Leases">
+                <ScalarProperty Name="LeaseID" ColumnName="LeaseID" />
+                <ScalarProperty Name="BuildingID" ColumnName="BuildingID" />
+                <ScalarProperty Name="SuiteID" ColumnName="SuiteID" />
+                <ScalarProperty Name="TenantName" ColumnName="TenantName" />
+                <ScalarProperty Name="LeaseBegin" ColumnName="LeaseBegin" />
+                <ScalarProperty Name="LeaseExpiration" ColumnName="LeaseExpiration" />
+                <ScalarProperty Name="RentPerMonth" ColumnName="RentPerMonth" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suites">
+            <EntityTypeMapping TypeName="RealEstateExampleModel.Suite">
+              <MappingFragment StoreEntitySet="Suites">
+                <ScalarProperty Name="SuiteID" ColumnName="SuiteID" />
+                <ScalarProperty Name="BuildingID" ColumnName="BuildingID" />
+                <ScalarProperty Name="SuiteName" ColumnName="SuiteName" />
+                <ScalarProperty Name="SuiteArea" ColumnName="SuiteArea" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

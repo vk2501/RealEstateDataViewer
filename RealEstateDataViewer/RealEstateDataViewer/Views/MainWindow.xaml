@@ -1,0 +1,63 @@
+﻿<Window x:Class="RealEstateDataViewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RealEstateDataViewer"
+        mc:Ignorable="d"
+        Title="RealEstate DataViewer" Height="450" Width="800">
+    <Grid ShowGridLines="False">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <TextBlock Text="Real estate data viewer" FontSize="18" FontWeight="ExtraBold" Padding="10 10 10 10"></TextBlock>
+        <DataGrid x:Name="dgBuildings" 
+                  Grid.Row="1" 
+                  Padding="10 10 10 10" 
+                  AutoGenerateColumns="False"
+                  ItemsSource="{Binding Path=BuildingsList}">
+            <DataGrid.Columns>
+                <DataGridTextColumn 
+                    Header="BuildingID" 
+                    Width="auto"
+                    Binding="{Binding Path=BuildingID}">
+                </DataGridTextColumn>
+                <DataGridTextColumn 
+                    Header="Address" 
+                    Width="auto"
+                    Binding="{Binding Path=Address}">
+                </DataGridTextColumn>
+                <DataGridTextColumn 
+                    Header="City" 
+                    Width="auto"
+                    Binding="{Binding Path=City}">
+                </DataGridTextColumn>
+                <DataGridTextColumn 
+                    Header="State" 
+                    Width="auto"
+                    Binding="{Binding Path=State}">
+                </DataGridTextColumn>
+                <DataGridTextColumn 
+                    Header="ZipOrPostalCode" 
+                    Width="auto"
+                    Binding="{Binding Path=ZipOrPostalCode}">
+                </DataGridTextColumn>
+                <DataGridTextColumn 
+                    Header="BuildingArea" 
+                    Width="auto"
+                    Binding="{Binding Path=BuildingArea}">
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid 
+            Grid.Column="1" 
+            Grid.Row="1" 
+            Padding="10 10 10 10">
+        </DataGrid>
+    </Grid>
+</Window>
