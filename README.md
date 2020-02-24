@@ -27,3 +27,10 @@ Files updated
 3. new file:   RealEstateDataViewer/RealEstateDataViewer/Models/SuiteDTO.cs
 4. new file:   RealEstateDataViewer/RealEstateDataViewer/Models/SuiteService.cs
 
+Stage-5: Implemented showing leases for each suite under row details
+Files updated 
+1. RealEstateDataViewer/RealEstateDataViewer/Models/LeaseDTO.cs
+2. RealEstateDataViewer/RealEstateDataViewer/Models/SuiteDTO.cs
+3. RealEstateDataViewer/RealEstateDataViewer/Models/SuiteService.cs
+4. RealEstateDataViewer/RealEstateDataViewer/Views/MainWindow.xaml
+

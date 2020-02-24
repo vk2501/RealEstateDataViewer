@@ -77,6 +77,11 @@
             Grid.Row="1" 
             Padding="10 10 10 10"
             ItemsSource="{Binding Path=SuitesList}">
+            <DataGrid.RowDetailsTemplate>
+                <DataTemplate>
+                    <DataGrid ItemsSource="{Binding Path=LeasesList}"></DataGrid>
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
         </DataGrid>
     </Grid>
 </Window>

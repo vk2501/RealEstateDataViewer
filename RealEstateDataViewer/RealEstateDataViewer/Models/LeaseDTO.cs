@@ -7,7 +7,7 @@ using System.ComponentModel;
 
 namespace RealEstateDataViewer.Models
 {
-    class LeaseDTO : INotifyPropertyChanged
+    public class LeaseDTO : INotifyPropertyChanged
     {
         private int _buildingID;
         public int BuildingID
@@ -38,25 +38,25 @@ namespace RealEstateDataViewer.Models
             set { _tenantName = value; }
         }
 
-        private DateTime _leaseBegin;
+        private DateTime? _leaseBegin;
 
-        public DateTime LeaseBegin
+        public DateTime? LeaseBegin
         {
             get { return _leaseBegin; }
             set { _leaseBegin = value; }
         }
 
-        private DateTime _leaseExpiration;
+        private DateTime? _leaseExpiration;
 
-        public DateTime LeaseExpiration
+        public DateTime? LeaseExpiration
         {
             get { return _leaseExpiration; }
             set { _leaseExpiration = value; }
         }
 
-        private decimal _rentPerMonth;
+        private double? _rentPerMonth;
 
-        public decimal RentPerMonth
+        public double? RentPerMonth
         {
             get { return _rentPerMonth; }
             set { _rentPerMonth = value; }

@@ -25,7 +25,8 @@ namespace RealEstateDataViewer.Models
                     BuildingID = s.BuildingID,
                     SuiteID = s.SuiteID,
                     SuiteName = s.SuiteName,
-                    SuiteArea = s.SuiteArea
+                    SuiteArea = s.SuiteArea,
+                    LeasesList = GetLeasesList(s.BuildingID, s.SuiteID)
                 }).ToList();
 
                 return suitesList;
@@ -34,6 +35,22 @@ namespace RealEstateDataViewer.Models
             {
                 throw ex;
             }
+        }
+
+        private List<LeaseDTO> GetLeasesList(int buildingID, int suiteID)
+        {
+            var filsteredLeases = realEstateDataContext.Leases.Where(l => l.BuildingID == buildingID && l.SuiteID == suiteID).ToList();
+
+            return filsteredLeases.Select(l => new LeaseDTO
+            {
+                BuildingID = l.BuildingID,
+                SuiteID = l.SuiteID,
+                LeaseID = l.LeaseID,
+                TenantName = l.TenantName,
+                LeaseBegin = l.LeaseBegin,
+                LeaseExpiration = l.LeaseExpiration,
+                RentPerMonth = l.RentPerMonth
+            }).ToList();
         }
     }
 }

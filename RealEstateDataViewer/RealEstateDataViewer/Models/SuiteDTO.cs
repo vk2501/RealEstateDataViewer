@@ -9,15 +9,6 @@ namespace RealEstateDataViewer.Models
 {
     public class SuiteDTO : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-
         private int _suiteID;
 
         public int SuiteID
@@ -48,6 +39,22 @@ namespace RealEstateDataViewer.Models
         {
             get { return _suiteArea; }
             set { _suiteArea = value; }
+        }
+
+        private List<LeaseDTO> _leasesList;
+        public List<LeaseDTO> LeasesList
+        {
+            get { return _leasesList; }
+            set { _leasesList = value; }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
 
     }
