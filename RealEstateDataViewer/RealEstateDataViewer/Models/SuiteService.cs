@@ -24,7 +24,7 @@ namespace RealEstateDataViewer.Models
                 {
                     BuildingID = s.BuildingID,
                     SuiteID = s.SuiteID,
-                    SuiteName = s.SuiteName,
+                    SuiteName = s.SuiteName.ToString().Trim(),
                     SuiteArea = s.SuiteArea,
                     LeasesList = GetLeasesList(s.BuildingID, s.SuiteID)
                 }).ToList();

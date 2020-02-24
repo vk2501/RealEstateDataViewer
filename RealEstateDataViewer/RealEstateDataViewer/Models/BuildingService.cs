@@ -20,12 +20,12 @@ namespace RealEstateDataViewer.Models
                 return realEstateDataContext.Buildings.ToList().Select(b => new BuildingDTO
                 {
                     BuildingID = b.BuildingID,
-                    Address = b.Address,
-                    City = b.City,
-                    State = b.State,
-                    ZipOrPostalCode = b.ZipOrPostalCode,
+                    Address = b.Address.ToString().Trim(),
+                    City = b.City.ToString().Trim(),
+                    State = b.State.ToString().Trim(),
+                    ZipOrPostalCode = b.ZipOrPostalCode.ToString().Trim(),
                     BuildingArea = b.BuildingArea,
-                    Occupancy = GetOccupancyPercentage(b.BuildingID, b.BuildingArea)
+                    Occupancy = GetOccupancyValue(b.BuildingID, b.BuildingArea)
                 }).ToList();
             }
             catch (Exception ex)
@@ -34,11 +34,11 @@ namespace RealEstateDataViewer.Models
             }
         }
 
-        public decimal GetOccupancyPercentage(int buildingID, int? buildingArea)
+        public string GetOccupancyValue(int buildingID, int? buildingArea)
         {
             var totalAreaOfSuites = realEstateDataContext.Suites.Where(s => s.BuildingID == buildingID).Select(p => p.SuiteArea).Sum();
             var occupancyValue = totalAreaOfSuites.HasValue ? Decimal.Divide(Convert.ToDecimal(totalAreaOfSuites.Value), Convert.ToDecimal(buildingArea.Value)) : Decimal.Zero;
-            return occupancyValue;
+            return occupancyValue.ToString("0.00");
         }
     }
 }

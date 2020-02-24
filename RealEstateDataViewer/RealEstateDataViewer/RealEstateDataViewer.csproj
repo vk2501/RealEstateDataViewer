@@ -125,6 +125,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EntityDeploy Include="Models\RealEstateDataModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -144,6 +145,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Resource Include="Images\AltuGroupLogo.png" />
     <Content Include="Models\RealEstateDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>RealEstateDataModel.Context.cs</LastGenOutput>

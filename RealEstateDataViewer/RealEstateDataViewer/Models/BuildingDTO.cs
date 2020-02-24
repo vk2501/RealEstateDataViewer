@@ -40,8 +40,8 @@ namespace RealEstateDataViewer.Models
             get { return _buildingArea; }
             set { _buildingArea = value; }
         }
-        private decimal _occupancy;
-        public decimal Occupancy
+        private string _occupancy;
+        public string Occupancy
         {
             get { return _occupancy; }
             set { _occupancy = value; }
