@@ -72,6 +72,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Commands\DataGridSelectionChangedCommand.cs" />
     <Compile Include="Models\Building.cs">
       <DependentUpon>RealEstateDataModel.tt</DependentUpon>
     </Compile>
@@ -80,6 +81,7 @@
     <Compile Include="Models\Leas.cs">
       <DependentUpon>RealEstateDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LeaseDTO.cs" />
     <Compile Include="Models\RealEstateDataModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -98,6 +100,8 @@
     <Compile Include="Models\Suite.cs">
       <DependentUpon>RealEstateDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SuiteDTO.cs" />
+    <Compile Include="Models\SuiteService.cs" />
     <Compile Include="ViewModels\BuildingViewModel.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -138,9 +142,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Commands\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Models\RealEstateDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

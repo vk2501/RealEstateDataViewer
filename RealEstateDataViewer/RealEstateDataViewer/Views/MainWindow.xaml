@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RealEstateDataViewer"
+        xmlns:vm="clr-namespace:RealEstateDataViewer.ViewModels"
         mc:Ignorable="d"
         Title="RealEstate DataViewer" Height="450" Width="800">
     <Grid ShowGridLines="False">
@@ -23,8 +24,16 @@
                   AlternatingRowBackground="#D6EAF8"
                   CanUserAddRows="False"
                   CanUserDeleteRows="False"
-                  IsReadOnly="False"
-                  ItemsSource="{Binding Path=BuildingsList}">
+                  IsReadOnly="True"
+                  ItemsSource="{Binding Path=BuildingsList, Mode=TwoWay}"
+                  SelectionUnit="FullRow">
+            <DataGrid.InputBindings>
+                <MouseBinding
+                    MouseAction="LeftDoubleClick"
+                    Command="{Binding PopulateSuitesCommand}"
+                    CommandParameter="{Binding ElementName=dgBuildings, Path=SelectedItem}"/>
+            </DataGrid.InputBindings>
+
             <DataGrid.Columns>
                 <DataGridTextColumn 
                     Header="BuildingID" 
@@ -66,7 +75,8 @@
         <DataGrid 
             Grid.Column="1" 
             Grid.Row="1" 
-            Padding="10 10 10 10">
+            Padding="10 10 10 10"
+            ItemsSource="{Binding Path=SuitesList}">
         </DataGrid>
     </Grid>
 </Window>

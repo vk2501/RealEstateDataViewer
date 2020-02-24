@@ -15,7 +15,6 @@ namespace RealEstateDataViewer.Models
 
         public List<BuildingDTO> GetBuildingsList()
         {
-            List<BuildingDTO> buildingsList = new List<BuildingDTO>();
             try
             {
                 return realEstateDataContext.Buildings.ToList().Select(b => new BuildingDTO
