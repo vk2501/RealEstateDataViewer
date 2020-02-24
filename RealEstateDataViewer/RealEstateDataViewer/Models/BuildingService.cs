@@ -13,6 +13,10 @@ namespace RealEstateDataViewer.Models
             realEstateDataContext = new RealEstateExampleEntities();
         }
 
+        /// <summary>
+        /// Returns list of buildings
+        /// </summary>
+        /// <returns></returns>
         public List<BuildingDTO> GetBuildingsList()
         {
             try
@@ -34,6 +38,12 @@ namespace RealEstateDataViewer.Models
             }
         }
 
+        /// <summary>
+        /// Calculate occupancy value
+        /// </summary>
+        /// <param name="buildingID"></param>
+        /// <param name="buildingArea"></param>
+        /// <returns></returns>
         public string GetOccupancyValue(int buildingID, int? buildingArea)
         {
             var totalAreaOfSuites = realEstateDataContext.Suites.Where(s => s.BuildingID == buildingID).Select(p => p.SuiteArea).Sum();

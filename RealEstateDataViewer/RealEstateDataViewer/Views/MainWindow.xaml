@@ -43,10 +43,12 @@
                   SelectionUnit="FullRow"
                   GridLinesVisibility="None"
                   AlternatingRowBackground="#EBF5FB"
+                  AlternationCount="2"
                   RowHeaderWidth="0"
-                  RowHeight="45"
+                  RowHeight="40"
                   Foreground="#808080"
-                  FontFamily="Georgia">
+                  FontFamily="Georgia"
+                  SelectionMode="Single">
             <DataGrid.CellStyle>
                 <Style TargetType="DataGridCell">
                     <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -62,6 +64,16 @@
                     <Setter Property="HorizontalContentAlignment" Value="Center" />
                 </Style>
             </DataGrid.Resources>
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="#4EA7DD"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+
             <DataGrid.InputBindings>
                 <MouseBinding
                     MouseAction="LeftDoubleClick"
@@ -121,7 +133,7 @@
             AlternatingRowBackground="#EBF5FB"
             RowHeaderWidth="0"
             Foreground="#808080"
-            RowHeight="45"
+            RowHeight="40"
             FontFamily="Georgia">
             <DataGrid.Resources>
                 <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">

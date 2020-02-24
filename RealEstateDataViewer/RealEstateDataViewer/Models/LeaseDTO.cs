@@ -31,7 +31,6 @@ namespace RealEstateDataViewer.Models
         }
 
         private string _tenantName;
-
         public string TenantName
         {
             get { return _tenantName; }
@@ -39,7 +38,6 @@ namespace RealEstateDataViewer.Models
         }
 
         private DateTime? _leaseBegin;
-
         public DateTime? LeaseBegin
         {
             get { return _leaseBegin; }
@@ -47,7 +45,6 @@ namespace RealEstateDataViewer.Models
         }
 
         private DateTime? _leaseExpiration;
-
         public DateTime? LeaseExpiration
         {
             get { return _leaseExpiration; }
@@ -55,7 +52,6 @@ namespace RealEstateDataViewer.Models
         }
 
         private double? _rentPerMonth;
-
         public double? RentPerMonth
         {
             get { return _rentPerMonth; }
@@ -63,7 +59,6 @@ namespace RealEstateDataViewer.Models
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-
         private void OnPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)

@@ -15,6 +15,10 @@ namespace RealEstateDataViewer.Models
             realEstateDataContext = new RealEstateExampleEntities();
         }
 
+        /// <summary>
+        /// Returns complete list of Suites
+        /// </summary>
+        /// <returns></returns>
         public List<SuiteDTO> GetSuitesList()
         {
             List<SuiteDTO> suitesList = new List<SuiteDTO>();

@@ -1,6 +1,18 @@
 # RealEstateDataViewer
 =======================
 
+Stage-7: Datgrids more styling, code clean up and comments
+Files updated 
+1. RealEstateDataViewer/RealEstateDataViewer/Commands/DataGridSelectionChangedCommand.cs
+2. RealEstateDataViewer/RealEstateDataViewer/Models/BuildingDTO.cs
+3. RealEstateDataViewer/RealEstateDataViewer/Models/BuildingService.cs
+4. RealEstateDataViewer/RealEstateDataViewer/Models/LeaseDTO.cs
+5. RealEstateDataViewer/RealEstateDataViewer/Models/SuiteDTO.cs
+6. RealEstateDataViewer/RealEstateDataViewer/Models/SuiteService.cs
+7. RealEstateDataViewer/RealEstateDataViewer/ViewModels/BuildingViewModel.cs
+8. RealEstateDataViewer/RealEstateDataViewer/Views/MainWindow.xaml
+
+
 Stage-6: Datgrids styling and added logo
 Files updated 
 1. RealEstateDataViewer/RealEstateDataViewer/Models/BuildingDTO.cs

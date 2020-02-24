@@ -10,7 +10,6 @@ namespace RealEstateDataViewer.Models
     public class SuiteDTO : INotifyPropertyChanged
     {
         private int _suiteID;
-
         public int SuiteID
         {
             get { return _suiteID; }
@@ -18,7 +17,6 @@ namespace RealEstateDataViewer.Models
         }
 
         private int _buildingID;
-
         public int BuildingID
         {
             get { return _buildingID; }
@@ -26,7 +24,6 @@ namespace RealEstateDataViewer.Models
         }
 
         private string _suiteName;
-
         public string SuiteName
         {
             get { return _suiteName; }
@@ -34,7 +31,6 @@ namespace RealEstateDataViewer.Models
         }
 
         private int? _suiteArea;
-
         public int? SuiteArea
         {
             get { return _suiteArea; }
@@ -56,6 +52,5 @@ namespace RealEstateDataViewer.Models
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
-
     }
 }

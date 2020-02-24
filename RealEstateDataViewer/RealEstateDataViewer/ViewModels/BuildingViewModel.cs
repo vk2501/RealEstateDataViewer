@@ -13,6 +13,9 @@ namespace RealEstateDataViewer.ViewModels
     {
         BuildingService BuildingServiceObj;
         SuiteService SuiteServiceObj;
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public BuildingViewModel()
         {
             BuildingServiceObj = new BuildingService();
@@ -23,7 +26,6 @@ namespace RealEstateDataViewer.ViewModels
         }
 
         private List<BuildingDTO> buildingsList;
-
         public List<BuildingDTO> BuildingsList
         {
             get { return buildingsList; }
@@ -45,7 +47,6 @@ namespace RealEstateDataViewer.ViewModels
         }
 
         private Building _selectedBuilding;
-
         public Building SelectedBuilding
         {
             get { return _selectedBuilding; }
@@ -66,7 +67,6 @@ namespace RealEstateDataViewer.ViewModels
         }
 
         private ObservableCollection<SuiteDTO> _suitesList;
-
         public ObservableCollection<SuiteDTO> SuitesList
         {
             get { return _suitesList; }
@@ -77,6 +77,11 @@ namespace RealEstateDataViewer.ViewModels
         {
             SuitesList = new ObservableCollection<SuiteDTO>(SuiteServiceObj.GetSuitesList());
         }
+
+        /// <summary>
+        /// Populates Suites for the given building Id
+        /// </summary>
+        /// <param name="parameter"></param>
         private void PopulateSuites(object parameter)
         {
             PopulateSuitesDataGrid();
