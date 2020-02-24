@@ -21,7 +21,7 @@ Files updated
 2. RealEstateDataViewer/RealEstateDataViewer/RealEstateDataViewer.csproj
 3. RealEstateDataViewer/RealEstateDataViewer/ViewModels/BuildingViewModel.cs
 4. RealEstateDataViewer/RealEstateDataViewer/Views/MainWindow.xaml
-New files
+--New files--
 1. new file:   RealEstateDataViewer/RealEstateDataViewer/Commands/DataGridSelectionChangedCommand.cs
 2. new file:   RealEstateDataViewer/RealEstateDataViewer/Models/LeaseDTO.cs
 3. new file:   RealEstateDataViewer/RealEstateDataViewer/Models/SuiteDTO.cs
