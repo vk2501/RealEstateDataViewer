@@ -3,20 +3,20 @@
 
 Stage-10: Implemented dependency injection
 Files updated
-RealEstateDataViewer/RealEstateDataViewer/App.xaml
-RealEstateDataViewer/RealEstateDataViewer/App.xaml.cs
-RealEstateDataViewer/RealEstateDataViewer/Models/BuildingService.cs
-RealEstateDataViewer/RealEstateDataViewer/Models/SuiteService.cs
-RealEstateDataViewer/RealEstateDataViewer/RealEstateDataViewer.csproj
-RealEstateDataViewer/RealEstateDataViewer/ViewModels/BuildingViewModel.cs
-RealEstateDataViewer/RealEstateDataViewer/Views/MainWindow.xaml.cs
-RealEstateDataViewer/RealEstateDataViewer/packages.config
+1. RealEstateDataViewer/RealEstateDataViewer/App.xaml
+2. RealEstateDataViewer/RealEstateDataViewer/App.xaml.cs
+3. RealEstateDataViewer/RealEstateDataViewer/Models/BuildingService.cs
+4. RealEstateDataViewer/RealEstateDataViewer/Models/SuiteService.cs
+5. RealEstateDataViewer/RealEstateDataViewer/RealEstateDataViewer.csproj
+6. RealEstateDataViewer/RealEstateDataViewer/ViewModels/BuildingViewModel.cs
+7. RealEstateDataViewer/RealEstateDataViewer/Views/MainWindow.xaml.cs
+8. RealEstateDataViewer/RealEstateDataViewer/packages.config
 
 -- New files --
-RealEstateDataViewer/RealEstateDataViewer/Models/IBuildingService.cs
-RealEstateDataViewer/RealEstateDataViewer/Models/ISuiteService.cs
-RealEstateDataViewer/packages/System.Runtime.CompilerServices.Unsafe.4.5.2/
-RealEstateDataViewer/packages/Unity.5.11.4/
+1. RealEstateDataViewer/RealEstateDataViewer/Models/IBuildingService.cs
+2. RealEstateDataViewer/RealEstateDataViewer/Models/ISuiteService.cs
+3. RealEstateDataViewer/packages/System.Runtime.CompilerServices.Unsafe.4.5.2/
+4. RealEstateDataViewer/packages/Unity.5.11.4/
 
 Stage-9: Exception handling implementing DispatcherUnhandledException
 Files updated 
