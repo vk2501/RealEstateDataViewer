@@ -1,6 +1,10 @@
 # RealEstateDataViewer
 =======================
 
+Stage-8: Implemented no records found to datagrids
+Files updated 
+1. RealEstateDataViewer/RealEstateDataViewer/Views/MainWindow.xaml
+
 Stage-7: Datgrids more styling, code clean up and comments
 Files updated 
 1. RealEstateDataViewer/RealEstateDataViewer/Commands/DataGridSelectionChangedCommand.cs
