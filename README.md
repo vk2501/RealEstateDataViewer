@@ -1,6 +1,12 @@
 # RealEstateDataViewer
 =======================
 
+Stage-9: Exception handling implementing DispatcherUnhandledException
+Files updated 
+1. RealEstateDataViewer/RealEstateDataViewer/App.xaml
+2. RealEstateDataViewer/RealEstateDataViewer/App.xaml.cs
+
+
 Stage-8: Implemented no records found to datagrids
 Files updated 
 1. RealEstateDataViewer/RealEstateDataViewer/Views/MainWindow.xaml
