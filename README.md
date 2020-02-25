@@ -2,7 +2,7 @@
 =======================
 
 Stage-10: Implemented dependency injection
-Files updated 
+Files updated
 RealEstateDataViewer/RealEstateDataViewer/App.xaml
 RealEstateDataViewer/RealEstateDataViewer/App.xaml.cs
 RealEstateDataViewer/RealEstateDataViewer/Models/BuildingService.cs
