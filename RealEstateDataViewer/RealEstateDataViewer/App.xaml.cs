@@ -1,4 +1,6 @@
-﻿using System;
+﻿using RealEstateDataViewer.Models;
+using RealEstateDataViewer.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -6,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
+using Unity;
 
 namespace RealEstateDataViewer
 {
@@ -16,6 +19,14 @@ namespace RealEstateDataViewer
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+            IUnityContainer container = new UnityContainer();
+            container.RegisterType<IBuildingService, BuildingService>();
+            container.RegisterType<ISuiteService, SuiteService>();
+
+            var buildingsViewModel = container.Resolve<BuildingViewModel>();
+            var window = new MainWindow { DataContext = buildingsViewModel };
+            window.Show();
+
             Current.DispatcherUnhandledException += new DispatcherUnhandledExceptionEventHandler(Current_DispatcherUnhandledException);
             DispatcherUnhandledException += new DispatcherUnhandledExceptionEventHandler(App_DispatcherUnhandledException);
             AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);

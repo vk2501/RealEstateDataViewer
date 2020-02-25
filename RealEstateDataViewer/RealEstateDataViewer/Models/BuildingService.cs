@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace RealEstateDataViewer.Models
 {
-    public class BuildingService
+    public class BuildingService : IBuildingService
     {
         RealEstateExampleEntities realEstateDataContext;
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RealEstateDataViewer.Models
 {
-    public class SuiteService
+    public class SuiteService : ISuiteService
     {
         RealEstateExampleEntities realEstateDataContext;
 

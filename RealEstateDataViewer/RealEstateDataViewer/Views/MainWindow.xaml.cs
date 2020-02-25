@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using RealEstateDataViewer.Models;
 using RealEstateDataViewer.ViewModels;
 
 namespace RealEstateDataViewer
@@ -8,13 +9,10 @@ namespace RealEstateDataViewer
     /// </summary>
     public partial class MainWindow : Window
     {
-        BuildingViewModel BuildingsViewModel;
         public MainWindow()
         {
             this.WindowState = WindowState.Maximized;
             InitializeComponent();
-            BuildingsViewModel = new BuildingViewModel();
-            this.DataContext = BuildingsViewModel;
         }
     }
 }

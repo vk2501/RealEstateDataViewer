@@ -16,10 +16,10 @@ namespace RealEstateDataViewer.ViewModels
         /// <summary>
         /// Constructor
         /// </summary>
-        public BuildingViewModel()
+        public BuildingViewModel(BuildingService buildingService, SuiteService suiteService)
         {
-            BuildingServiceObj = new BuildingService();
-            SuiteServiceObj = new SuiteService();
+            BuildingServiceObj = buildingService;
+            SuiteServiceObj = suiteService;
             PopulateBuildingsDataGrid();
             SelectedBuilding = new Building();
             _populateSuitesCommand = new DataGridSelectionChangedCommand(PopulateSuites, CanExecuteMethod);
