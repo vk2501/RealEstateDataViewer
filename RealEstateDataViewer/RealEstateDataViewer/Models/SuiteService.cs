@@ -30,7 +30,8 @@ namespace RealEstateDataViewer.Models
                     SuiteID = s.SuiteID,
                     SuiteName = s.SuiteName.ToString().Trim(),
                     SuiteArea = s.SuiteArea,
-                    LeasesList = GetLeasesList(s.BuildingID, s.SuiteID)
+                    LeasesList = GetLeasesList(s.BuildingID, s.SuiteID),
+                    Vacant = CheckVacancy(s.BuildingID, s.SuiteID)
                 }).ToList();
 
                 return suitesList;
@@ -55,6 +56,17 @@ namespace RealEstateDataViewer.Models
                 LeaseExpiration = l.LeaseExpiration,
                 RentPerMonth = l.RentPerMonth
             }).ToList();
+        }
+
+        private string CheckVacancy(int buildingID, int suiteID)
+        {
+            string returnValue = "Vacant";
+            var filsteredLeases = realEstateDataContext.Leases.Where(l => l.BuildingID == buildingID && l.SuiteID == suiteID).ToList();
+            if (filsteredLeases.Count != 0)
+            {
+                returnValue = "-";
+            }
+            return returnValue;
         }
     }
 }

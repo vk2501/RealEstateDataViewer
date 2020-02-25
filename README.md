@@ -1,6 +1,15 @@
 # RealEstateDataViewer
 =======================
 
+Stage-11: Implemented Vacancy field and fixed Occupancy calculation
+Files updated
+1. RealEstateDataViewer/RealEstateDataViewer/Models/BuildingService.cs
+2. RealEstateDataViewer/RealEstateDataViewer/Models/SuiteDTO.cs
+3. RealEstateDataViewer/RealEstateDataViewer/Models/SuiteService.cs
+4. RealEstateDataViewer/RealEstateDataViewer/Views/MainWindow.xaml
+
+
+
 Stage-10: Implemented dependency injection
 Files updated
 1. RealEstateDataViewer/RealEstateDataViewer/App.xaml

@@ -46,7 +46,7 @@ namespace RealEstateDataViewer.Models
         /// <returns></returns>
         public string GetOccupancyValue(int buildingID, int? buildingArea)
         {
-            var totalAreaOfSuites = realEstateDataContext.Suites.Where(s => s.BuildingID == buildingID).Select(p => p.SuiteArea).Sum();
+            var totalAreaOfSuites = realEstateDataContext.Suites.Where(s => s.BuildingID == buildingID && s.Leases.Count > 0).Select(p => p.SuiteArea).Sum();
             var occupancyValue = totalAreaOfSuites.HasValue ? Decimal.Divide(Convert.ToDecimal(totalAreaOfSuites.Value), Convert.ToDecimal(buildingArea.Value)) : Decimal.Zero;
             return occupancyValue.ToString("0.00");
         }

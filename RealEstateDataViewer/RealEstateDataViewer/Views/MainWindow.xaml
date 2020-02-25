@@ -117,8 +117,9 @@
                 </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <StackPanel Grid.Column="1" Grid.Row="1">
-            <DataGrid 
+        <WrapPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1">
+            <ScrollViewer VerticalScrollBarVisibility="auto">
+                <DataGrid 
             Padding="10 10 10 10"
             ItemsSource="{Binding Path=SuitesList}"
             AutoGenerateColumns="False"
@@ -132,47 +133,52 @@
             Foreground="#808080"
             RowHeight="40"
             FontFamily="Georgia">
-                <DataGrid.Resources>
-                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
-                        <Setter Property="Background" Value="#739DD2" />
-                        <Setter Property="Foreground" Value="#fff" />
-                        <Setter Property="Height" Value="50"/>
-                        <Setter Property="FontWeight" Value="Bold"/>
-                        <Setter Property="HorizontalContentAlignment" Value="Center" />
-                    </Style>
-                </DataGrid.Resources>
-                <DataGrid.CellStyle>
-                    <Style TargetType="DataGridCell">
-                        <Setter Property="HorizontalAlignment" Value="Center"/>
-                        <Setter Property="VerticalAlignment" Value="Center"/>
-                    </Style>
-                </DataGrid.CellStyle>
-                <DataGrid.Columns>
-                    <DataGridTextColumn 
+                    <DataGrid.Resources>
+                        <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="Background" Value="#739DD2" />
+                            <Setter Property="Foreground" Value="#fff" />
+                            <Setter Property="Height" Value="50"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGrid.Resources>
+                    <DataGrid.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGrid.CellStyle>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn 
                     Header="Building ID" 
                     Width="*"
                     Binding="{Binding Path=BuildingID}">
-                    </DataGridTextColumn>
-                    <DataGridTextColumn 
+                        </DataGridTextColumn>
+                        <DataGridTextColumn 
                     Header="Suite ID" 
                     Width="*"
                     Binding="{Binding Path=SuiteID}">
-                    </DataGridTextColumn>
-                    <DataGridTextColumn 
+                        </DataGridTextColumn>
+                        <DataGridTextColumn 
                     Header="Suite Name" 
                     Width="*"
                     Binding="{Binding Path=SuiteName}">
-                    </DataGridTextColumn>
-                    <DataGridTextColumn 
+                        </DataGridTextColumn>
+                        <DataGridTextColumn 
                     Header="Suite Area" 
                     Width="*"
                     Binding="{Binding Path=SuiteArea}">
-                    </DataGridTextColumn>
-                </DataGrid.Columns>
-                <DataGrid.RowDetailsTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <DataGrid 
+                        </DataGridTextColumn>
+                        <DataGridTextColumn 
+                    Header="Vacant" 
+                    Width="*"
+                    Binding="{Binding Path=Vacant}">
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+                    <DataGrid.RowDetailsTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <DataGrid 
                         ItemsSource="{Binding Path=LeasesList}"
                         AutoGenerateColumns="False"
                         CanUserAddRows="False"
@@ -183,64 +189,65 @@
                         AlternatingRowBackground="#E9B6AA"
                         RowHeaderWidth="0"
                         FontFamily="Georgia">
-                                <DataGrid.Resources>
-                                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
-                                        <Setter Property="Background" Value="#CE5D41" />
-                                        <Setter Property="Height" Value="20"/>
-                                        <Setter Property="FontWeight" Value="Bold"/>
-                                        <Setter Property="HorizontalContentAlignment" Value="Center" />
-                                    </Style>
-                                </DataGrid.Resources>
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Width="20"/>
-                                    <DataGridTextColumn 
+                                    <DataGrid.Resources>
+                                        <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                                            <Setter Property="Background" Value="#CE5D41" />
+                                            <Setter Property="Height" Value="20"/>
+                                            <Setter Property="FontWeight" Value="Bold"/>
+                                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                        </Style>
+                                    </DataGrid.Resources>
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Width="20"/>
+                                        <DataGridTextColumn 
                                 Header="Lease ID" 
                                 Width="Auto"
                                 Binding="{Binding Path=LeaseID}">
-                                    </DataGridTextColumn>
-                                    <DataGridTextColumn Width="20"/>
-                                    <DataGridTextColumn 
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Width="20"/>
+                                        <DataGridTextColumn 
                                 Header="Tenant Name" 
                                 Width="Auto"
                                 Binding="{Binding Path=TenantName}">
-                                    </DataGridTextColumn>
-                                    <DataGridTextColumn Width="20"/>
-                                    <DataGridTextColumn 
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Width="20"/>
+                                        <DataGridTextColumn 
                                 Header="Lease Begin" 
                                 Width="Auto"
                                 Binding="{Binding Path=LeaseBegin, StringFormat='dd-MMM-yyyy'}">
-                                    </DataGridTextColumn>
-                                    <DataGridTextColumn Width="20"/>
-                                    <DataGridTextColumn 
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Width="20"/>
+                                        <DataGridTextColumn 
                                 Header="Lease Expiration" 
                                 Width="Auto"
                                 Binding="{Binding Path=LeaseExpiration, StringFormat='dd-MMM-yyyy'}">
-                                    </DataGridTextColumn>
-                                    <DataGridTextColumn Width="20"/>
-                                    <DataGridTextColumn 
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Width="20"/>
+                                        <DataGridTextColumn 
                                 Header="Rent Per Month" 
                                 Width="Auto"
                                 Binding="{Binding Path=RentPerMonth}">
-                                    </DataGridTextColumn>
-                                </DataGrid.Columns>
-                            </DataGrid>
-                            <Border HorizontalAlignment="Stretch" VerticalAlignment="Center" BorderThickness="1,0,1,1" BorderBrush="#c0c0c0" Height="35">
-                                <Border.Style>
-                                    <Style TargetType="Border">
-                                        <Setter Property="Visibility" Value="Collapsed" />
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding LeasesList.Count}" Value="0">
-                                                <Setter Property="Visibility" Value="Visible" />
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </Border.Style>
-                                <TextBlock Text="No leases found for this suite" Foreground="red" FontStyle="Italic" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                            </Border>
-                        </StackPanel>
-                    </DataTemplate>
-                </DataGrid.RowDetailsTemplate>
-            </DataGrid>
+                                        </DataGridTextColumn>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                                <Border HorizontalAlignment="Stretch" VerticalAlignment="Center" BorderThickness="1,0,1,1" BorderBrush="#c0c0c0" Height="35">
+                                    <Border.Style>
+                                        <Style TargetType="Border">
+                                            <Setter Property="Visibility" Value="Collapsed" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding LeasesList.Count}" Value="0">
+                                                    <Setter Property="Visibility" Value="Visible" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Border.Style>
+                                    <TextBlock Text="No leases found for this suite" Foreground="red" FontStyle="Italic" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGrid.RowDetailsTemplate>
+                </DataGrid>
+            </ScrollViewer>
             <Border HorizontalAlignment="Stretch" VerticalAlignment="Center" BorderThickness="1,0,1,1" BorderBrush="#c0c0c0" Height="35">
                 <Border.Style>
                     <Style TargetType="Border">
@@ -254,6 +261,6 @@
                 </Border.Style>
                 <TextBlock Text="No suites found in this building" Foreground="red" FontStyle="Italic" HorizontalAlignment="Center" VerticalAlignment="Center" />
             </Border>
-        </StackPanel>
+        </WrapPanel>
     </Grid>
 </Window>

@@ -37,6 +37,14 @@ namespace RealEstateDataViewer.Models
             set { _suiteArea = value; }
         }
 
+        private string _vacant;
+
+        public string Vacant
+        {
+            get { return _vacant; }
+            set { _vacant = value; }
+        }
+
         private List<LeaseDTO> _leasesList;
         public List<LeaseDTO> LeasesList
         {
